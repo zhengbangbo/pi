@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "packageManager": "pnpm@7.8.0",
   "author": "Bang-Bo Zheng <zhengbangbo@hotmail.com>",
+  "homepage": "https://github.com/zhengbangbo/pi",
+  "bin": {
+    "ni": "bin/pi.js"
+  },
   "scripts": {
     "watch": "npm run build -- --watch",
     "test": "vitest"
