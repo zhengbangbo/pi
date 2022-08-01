@@ -13,6 +13,7 @@ export const AGENTS = {
     run: pipenvRun('pipenv'),
     install: 'pipenv install',
     add: 'pipenv install {0}',
+    shell: 'pipenv shell'
   }
 }
 

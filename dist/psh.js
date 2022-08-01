@@ -23,16 +23,9 @@ function getCommand(agent, commnad, args2) {
     return c(args2);
   return c.replace("{0}", args2.join(" "));
 }
-function parsePi(agent, _args) {
-  let command = "install";
+function parsePsh(agent, _args) {
+  let command = "shell";
   let args2 = [];
-  if (_args.length === 0) {
-    command = "install";
-    args2 = [];
-  } else {
-    command = "add";
-    args2 = _args;
-  }
   return getCommand(agent, command, args2);
 }
 
@@ -62,7 +55,7 @@ async function run(fn) {
     (0, import_child_process.execSync)(command, { stdio: "inherit" });
 }
 
-// src/pi.ts
+// src/psh.ts
 run(async (agent, args2) => {
-  return parsePi(agent, args2);
+  return parsePsh(agent, args2);
 });

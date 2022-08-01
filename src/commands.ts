@@ -24,3 +24,10 @@ export function parsePi(agent: Agent, _args: string[]): string {
 
   return getCommand(agent, command, args)
 }
+
+export function parsePsh(agent: Agent, _args: string[]): string {
+  let command: Command = 'shell'
+  let args: string[] = []
+
+  return getCommand(agent, command, args)
+}

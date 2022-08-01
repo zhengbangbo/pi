@@ -1,9 +1,9 @@
 import {
-  parsePi,
+  parsePsh,
   run
 } from "./chunk-DI7T7WZG.mjs";
 
-// src/pi.ts
+// src/psh.ts
 run(async (agent, args) => {
-  return parsePi(agent, args);
+  return parsePsh(agent, args);
 });

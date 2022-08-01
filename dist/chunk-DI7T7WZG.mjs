@@ -1,5 +1,3 @@
-"use strict";
-
 // src/agents.ts
 var pipenvRun = (agent) => (args2) => {
   if (args2.length > 1)
@@ -35,9 +33,14 @@ function parsePi(agent, _args) {
   }
   return getCommand(agent, command, args2);
 }
+function parsePsh(agent, _args) {
+  let command = "shell";
+  let args2 = [];
+  return getCommand(agent, command, args2);
+}
 
 // src/runner.ts
-var import_child_process = require("child_process");
+import { execSync } from "child_process";
 
 // src/utils.ts
 function remove(arr, v) {
@@ -59,10 +62,11 @@ async function run(fn) {
   if (debug)
     console.log(command);
   else
-    (0, import_child_process.execSync)(command, { stdio: "inherit" });
+    execSync(command, { stdio: "inherit" });
 }
 
-// src/pi.ts
-run(async (agent, args2) => {
-  return parsePi(agent, args2);
-});
+export {
+  parsePi,
+  parsePsh,
+  run
+};

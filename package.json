@@ -5,10 +5,11 @@
   "author": "Bang-Bo Zheng <zhengbangbo@hotmail.com>",
   "homepage": "https://github.com/zhengbangbo/pi",
   "bin": {
-    "pi": "bin/pi.js"
+    "pi": "bin/pi.js",
+    "psh": "bin/psh.js"
   },
   "scripts": {
-    "build": "tsup src/pi.ts --format cjs,esm --dts",
+    "build": "tsup src/pi.ts src/psh.ts --format cjs,esm --dts",
     "test": "vitest"
   },
   "license": "MIT",
