@@ -8,14 +8,13 @@
     "pi": "bin/pi.js"
   },
   "scripts": {
-    "watch": "npm run build -- --watch",
+    "build": "tsup src/pi.ts --format cjs,esm --dts",
     "test": "vitest"
   },
   "license": "MIT",
-  "dependencies": {
-    "find-up": "^6.3.0"
-  },
   "devDependencies": {
+    "tsup": "^6.2.1",
+    "typescript": "^4.7.4",
     "vitest": "^0.20.2"
   }
 }
