@@ -5,7 +5,7 @@
   "author": "Bang-Bo Zheng <zhengbangbo@hotmail.com>",
   "homepage": "https://github.com/zhengbangbo/pi",
   "bin": {
-    "ni": "bin/pi.js"
+    "pi": "bin/pi.js"
   },
   "scripts": {
     "watch": "npm run build -- --watch",
