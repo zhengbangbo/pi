@@ -1,6 +1,6 @@
 {
   "name": "@zhengbangbo/pi",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "packageManager": "pnpm@7.8.0",
   "author": "Bang-Bo Zheng <zhengbangbo@hotmail.com>",
   "homepage": "https://github.com/zhengbangbo/pi",
