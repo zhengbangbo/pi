@@ -1,6 +1,7 @@
 {
   "name": "@zhengbangbo/pi",
   "version": "0.0.14",
+  "description": "Use the right python package manager",
   "packageManager": "pnpm@7.8.0",
   "author": "Bang-Bo Zheng <zhengbangbo@hotmail.com>",
   "homepage": "https://github.com/zhengbangbo/pi",
