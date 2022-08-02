@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { exclude, remove } from '../src/utils';
+import { cmdExists, exclude, remove } from '../src/utils';
 
 test("exclude", () => {
   expect(exclude(["rich", "httpx"], "--dev")).toMatchInlineSnapshot(`
@@ -16,4 +16,9 @@ test("remove", () => {
       "rich",
     ]
   `)
+})
+
+test("cmd exists", () => {
+  expect(cmdExists("node")).toMatchInlineSnapshot('true')
+  expect(cmdExists("fowejfowej")).toMatchInlineSnapshot('false')
 })
