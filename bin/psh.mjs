@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 'use strict'
-require('../dist/pi')
+require('../dist/psh.mjs')
