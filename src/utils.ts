@@ -1,3 +1,6 @@
+import { execSync } from 'child_process';
+import os from 'os';
+
 export function exclude<T>(arr: T[], v: T) {
   const clone = [...arr]
   const index = clone.indexOf(v)
@@ -13,4 +16,17 @@ export function remove<T>(arr: T[], v: T) {
     arr.splice(index, 1)
 
   return arr
+}
+
+export function cmdExists(cmd: string) {
+  try {
+    execSync(
+      os.platform() === 'win32'
+        ? `cmd /c "(help ${cmd} > nul || exit 0) && where ${cmd} > nul 2> nul"`
+        : `command -v ${cmd}`,
+    )
+    return true
+  } catch {
+    return false
+  }
 }

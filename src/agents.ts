@@ -8,18 +8,41 @@ const pipenvRun = (agent: string) => (args: string[]) => {
     return `${agent} run ${args[0]}`
 }
 
+const pipenv = {
+  'agent': 'pipenv {0}',
+  'run': pipenvRun('pipenv'),
+  'install': 'pipenv install',
+  'add': 'pipenv install {0}',
+  'upgrade': 'pipenv update {0}',
+  'uninstall': 'pipenv uninstall {0}',
+  'shell': 'pipenv shell'
+}
+
+const poetry = {
+  'agent': 'poetry {0}',
+  'run': 'poetry run {0}',
+  'install': 'poetry install {0}',
+  'add': 'poetry add {0}',
+  'upgrade': 'poetry update {0}',
+  'uninstall': 'poetry uninstall {0}' 
+}
+
 export const AGENTS = {
-  pipenv: {
-    run: pipenvRun('pipenv'),
-    install: 'pipenv install',
-    add: 'pipenv install {0}',
-    shell: 'pipenv shell'
-  }
+  'pipenv': pipenv,
+  'poetry': poetry
 }
 
 export const LOCKS: Record<string, Agent> = {
-  'Pipfile.lock': 'pipenv'
+  'Pipfile.lock': 'pipenv',
+  'poetry.lock': 'poetry'
+}
+
+export const INSTALL_PAGE: Record<Agent, string> = {
+  'pipenv': 'https://pipenv.pypa.io/en/latest/',
+  'poetry': 'https://python-poetry.org/docs/#installation'
 }
 
 export type Agent = keyof typeof AGENTS
 export type Command = keyof typeof AGENTS.pipenv
+
+export const agents = Object.keys(AGENTS) as Agent[]
