@@ -1,33 +1,30 @@
 import { Agent, AGENTS, Command } from './agents'
+import { version } from '../package.json'
+import { Runner } from './runner'
 
-export function getCommand(agent: Agent, commnad: Command, args: string[]) {
-  const c = AGENTS[agent][commnad]
+export function getCommand(
+  agent: Agent,
+  command: Command,
+  args: string[] = [],
+) {
+
+  const c = AGENTS[agent][command]
 
   if (typeof c === 'function')
     return c(args)
 
-  return c.replace('{0}', args.join(' '))
+  return c.replace('{0}', args.join(' ')).trim()
 }
 
-export function parsePi(agent: Agent, _args: string[]): string {
-  let command: Command = 'install'
-  let args: string[] = []
-
-  if (_args.length === 0) {
-    command = 'install'
-    args = []
-  }
-  else {
-    command = 'add'
-    args = _args
+export const parsePi = <Runner>((agent, args, ctx) => {
+  if (args.length === 1 && args[0] === '-v') {
+    // eslint-disable-next-line no-console
+    console.log(`@zhengbangbo/pi v${version}`)
+    process.exit(0)
   }
 
-  return getCommand(agent, command, args)
-}
+  if (args.length === 0 || args.every(i => i.startsWith('-')))
+    return getCommand(agent, 'install', args)
 
-export function parsePsh(agent: Agent, _args: string[]): string {
-  let command: Command = 'shell'
-  let args: string[] = []
-
-  return getCommand(agent, command, args)
-}
+  return getCommand(agent, 'add', args)
+})

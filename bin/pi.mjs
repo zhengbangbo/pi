@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 'use strict'
-require('../dist/pi.mjs')
+import '../dist/pi.mjs'

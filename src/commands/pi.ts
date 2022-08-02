@@ -1,6 +1,4 @@
 import { parsePi } from '../parse'
-import { run } from '../runner'
+import { runCli } from '../runner'
 
-run(async(agent, args) => {
-  return parsePi(agent, args)
-})
+runCli(parsePi)
