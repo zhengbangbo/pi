@@ -18,8 +18,8 @@
     }
   },
   "bin": {
-    "pi": "bin/pi.js",
-    "psh": "bin/psh.js"
+    "pi": "bin/pi.mjs",
+    "psh": "bin/psh.mjs"
   },
   "scripts": {
     "build": "unbuild",
