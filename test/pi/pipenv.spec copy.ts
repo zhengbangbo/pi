@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { parsePi } from '../src/commands'
+import { parsePi } from '../../src/commands'
 
 const agent = 'pipenv'
 const _ = (arg: string, expected: string) => () => {

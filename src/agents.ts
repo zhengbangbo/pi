@@ -21,10 +21,11 @@ const pipenv = {
 const poetry = {
   'agent': 'poetry {0}',
   'run': 'poetry run {0}',
-  'install': 'poetry install {0}',
+  'install': 'poetry install',
   'add': 'poetry add {0}',
   'upgrade': 'poetry update {0}',
-  'uninstall': 'poetry uninstall {0}' 
+  'uninstall': 'poetry uninstall {0}',
+  'shell': 'poetry shell'
 }
 
 export const AGENTS = {
