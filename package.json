@@ -4,12 +4,25 @@
   "packageManager": "pnpm@7.8.0",
   "author": "Bang-Bo Zheng <zhengbangbo@hotmail.com>",
   "homepage": "https://github.com/zhengbangbo/pi",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "bin": {
     "pi": "bin/pi.js",
     "psh": "bin/psh.js"
   },
   "scripts": {
-    "build": "tsup src/commands --format cjs,esm --dts",
+    "build": "unbuild",
     "test": "vitest",
     "release": "bumpp && npm publish"
   },
@@ -17,11 +30,13 @@
   "devDependencies": {
     "@types/prompts": "^2.0.14",
     "bumpp": "^8.2.1",
+    "fast-glob": "^3.2.11",
     "find-up": "^6.3.0",
     "prompts": "^2.4.2",
     "terminal-link": "^3.0.0",
     "tsup": "^6.2.1",
     "typescript": "^4.7.4",
+    "unbuild": "^0.7.6",
     "vitest": "^0.20.2"
   }
 }
