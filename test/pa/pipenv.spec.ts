@@ -1,13 +1,13 @@
 import { expect, test } from 'vitest'
-import { parsePsh } from '../../src/parse'
+import { parsePa } from '../../src/parse'
 
 const agent = 'pipenv'
 const _ = (arg: string, expected: string) => () => {
   expect(
-    parsePsh(agent, arg.split(' ').filter(Boolean)),
+    parsePa(agent, arg.split(' ').filter(Boolean)),
   ).toBe(
     expected,
   )
 }
 
-test('empty', _('', 'pipenv shell'))
+test('empty', _('install rich', 'pipenv install rich'))

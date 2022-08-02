@@ -13,6 +13,10 @@ export function getCommand(
   if (typeof c === 'function')
     return c(args)
 
+  if (c === null ){
+    return c
+  }
+
   return c.replace('{0}', args.join(' ')).trim()
 }
 
@@ -27,4 +31,31 @@ export const parsePi = <Runner>((agent, args, ctx) => {
     return getCommand(agent, 'install', args)
 
   return getCommand(agent, 'add', args)
+})
+
+export const parsePru = <Runner>((agent, args, ctx) => {
+  if (args.length === 0)
+    args.push('start')
+    
+  return getCommand(agent, 'run', args)
+})
+
+export const parsePsh = <Runner>((agent, args, ctx) => {
+  return getCommand(agent, 'shell', args)
+})
+
+export const parsePui = <Runner>((agent, args, ctx) => {
+  return getCommand(agent, 'uninstall', args)
+})
+
+export const parsePu = <Runner>((agent, args, ctx) => {
+  return getCommand(agent, 'upgrade', args)
+})
+
+export const parsePci = <Runner>((agent, args, ctx) => {
+  return getCommand(agent, 'clean', args)
+})
+
+export const parsePa = <Runner>((agent, args, ctx) => {
+  return getCommand(agent, 'agent', args)
 })

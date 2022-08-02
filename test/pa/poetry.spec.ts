@@ -1,13 +1,13 @@
 import { expect, test } from 'vitest'
-import { parsePsh } from '../../src/parse'
+import { parsePa } from '../../src/parse'
 
 const agent = 'poetry'
 const _ = (arg: string, expected: string) => () => {
   expect(
-    parsePsh(agent, arg.split(' ').filter(Boolean)),
+    parsePa(agent, arg.split(' ').filter(Boolean)),
   ).toBe(
     expected,
   )
 }
 
-test('empty', _('', 'poetry shell'))
+test('empty', _('install rich', 'poetry install rich'))

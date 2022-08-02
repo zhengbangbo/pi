@@ -15,7 +15,8 @@ const pipenv = {
   'add': 'pipenv install {0}',
   'upgrade': 'pipenv update {0}',
   'uninstall': 'pipenv uninstall {0}',
-  'shell': 'pipenv shell'
+  'shell': 'pipenv shell',
+  'clean': 'pipenv clean'
 }
 
 const poetry = {
@@ -25,7 +26,8 @@ const poetry = {
   'add': 'poetry add {0}',
   'upgrade': 'poetry update {0}',
   'uninstall': 'poetry uninstall {0}',
-  'shell': 'poetry shell'
+  'shell': 'poetry shell',
+  'clean': null
 }
 
 export const AGENTS = {

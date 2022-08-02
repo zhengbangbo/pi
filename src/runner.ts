@@ -26,7 +26,7 @@ export async function run(fn: Runner, args: string[], options: DetectOptions = {
   let cwd = process.cwd()
   let command
 
-  let agent = await detect({ ...options, cwd })
+  let agent = await detect({ ...options, cwd })  || 'prompt'
   if (agent === 'prompt') {
     agent = (await prompts({
       name: 'agent',

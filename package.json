@@ -19,7 +19,12 @@
   },
   "bin": {
     "pi": "bin/pi.mjs",
-    "psh": "bin/psh.mjs"
+    "psh": "bin/psh.mjs",
+    "pci": "bin/pci.mjs",
+    "pa": "bin/pa.mjs",
+    "pu": "bin/pu.mjs",
+    "pru": "bin/pru.mjs",
+    "pui": "bin/pui.mjs"
   },
   "scripts": {
     "build": "unbuild",
