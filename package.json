@@ -10,10 +10,13 @@
   },
   "scripts": {
     "build": "tsup src/pi.ts src/psh.ts --format cjs,esm --dts",
-    "test": "vitest"
+    "test": "vitest",
+    "release": "bumpp && npm publish"
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/prompts": "^2.0.14",
+    "bumpp": "^8.2.1",
     "find-up": "^6.3.0",
     "prompts": "^2.4.2",
     "terminal-link": "^3.0.0",
