@@ -1,5 +1,5 @@
-import { execSync } from 'child_process';
-import os from 'os';
+import { execSync } from 'child_process'
+import os from 'os'
 
 export function exclude<T>(arr: T[], v: T) {
   const clone = [...arr]
@@ -26,7 +26,8 @@ export function cmdExists(cmd: string) {
         : `command -v ${cmd}`,
     )
     return true
-  } catch {
+  }
+  catch {
     return false
   }
 }

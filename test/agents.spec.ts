@@ -1,12 +1,11 @@
-import { agents, DEFAULT_AGENT } from './../src/agents';
-import { test, expect } from 'vitest';
-import { AGENTS } from "../src/agents";
+import { expect, test } from 'vitest'
+import { AGENTS, DEFAULT_AGENT, agents } from '../src/agents'
 
-test("Command must same for every agent", () => {
+test('Command must same for every agent', () => {
   expect(Object.keys(AGENTS.pipenv)).toEqual(Object.keys(AGENTS.poetry))
 })
 
-test("agents", () => {
+test('agents', () => {
   expect(agents).toMatchInlineSnapshot(`
     [
       "pipenv",
@@ -15,6 +14,6 @@ test("agents", () => {
   `)
 })
 
-test("default agent", () => {
+test('default agent', () => {
   expect(DEFAULT_AGENT).toMatchInlineSnapshot('"pipenv"')
 })

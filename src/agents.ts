@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 export const DEFAULT_AGENT: Agent = 'pipenv'
 
 const pipenvRun = (agent: string) => (args: string[]) => {
@@ -9,40 +8,40 @@ const pipenvRun = (agent: string) => (args: string[]) => {
 }
 
 const pipenv = {
-  'agent': 'pipenv {0}',
-  'run': pipenvRun('pipenv'),
-  'install': 'pipenv install',
-  'add': 'pipenv install {0}',
-  'upgrade': 'pipenv update {0}',
-  'uninstall': 'pipenv uninstall {0}',
-  'shell': 'pipenv shell',
-  'clean': 'pipenv clean'
+  agent: 'pipenv {0}',
+  run: pipenvRun('pipenv'),
+  install: 'pipenv install',
+  add: 'pipenv install {0}',
+  upgrade: 'pipenv update {0}',
+  uninstall: 'pipenv uninstall {0}',
+  shell: 'pipenv shell',
+  clean: 'pipenv clean',
 }
 
 const poetry = {
-  'agent': 'poetry {0}',
-  'run': 'poetry run {0}',
-  'install': 'poetry install',
-  'add': 'poetry add {0}',
-  'upgrade': 'poetry update {0}',
-  'uninstall': 'poetry uninstall {0}',
-  'shell': 'poetry shell',
-  'clean': null
+  agent: 'poetry {0}',
+  run: 'poetry run {0}',
+  install: 'poetry install',
+  add: 'poetry add {0}',
+  upgrade: 'poetry update {0}',
+  uninstall: 'poetry uninstall {0}',
+  shell: 'poetry shell',
+  clean: null,
 }
 
 export const AGENTS = {
-  'pipenv': pipenv,
-  'poetry': poetry
+  pipenv,
+  poetry,
 }
 
 export const LOCKS: Record<string, Agent> = {
   'Pipfile.lock': 'pipenv',
-  'poetry.lock': 'poetry'
+  'poetry.lock': 'poetry',
 }
 
 export const INSTALL_PAGE: Record<Agent, string> = {
-  'pipenv': 'https://pipenv.pypa.io/en/latest/',
-  'poetry': 'https://python-poetry.org/docs/#installation'
+  pipenv: 'https://pipenv.pypa.io/en/latest/',
+  poetry: 'https://python-poetry.org/docs/#installation',
 }
 
 export type Agent = keyof typeof AGENTS

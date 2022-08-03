@@ -1,9 +1,10 @@
-import { Agent, INSTALL_PAGE, LOCKS } from './agents'
-import { findUp } from 'find-up'
 import path from 'path'
-import { cmdExists } from "./utils"
+import { findUp } from 'find-up'
 import terminalLink from 'terminal-link'
 import prompts from 'prompts'
+import { cmdExists } from './utils'
+import { INSTALL_PAGE, LOCKS } from './agents'
+import type { Agent } from './agents'
 
 export interface DetectOptions {
   autoInstall?: boolean
@@ -13,12 +14,12 @@ export interface DetectOptions {
 export async function detect({ autoInstall, cwd }: DetectOptions) {
   let agent: Agent | null = null
 
-  const lockPath = await findUp(Object.keys(LOCKS), { cwd } )
+  const lockPath = await findUp(Object.keys(LOCKS), { cwd })
 
   // detect based on lock
   if (!agent && lockPath)
     agent = LOCKS[path.basename(lockPath)]
-  
+
   // auto install
   if (agent && !cmdExists(agent.split('@')[0])) {
     if (!autoInstall) {

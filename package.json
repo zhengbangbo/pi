@@ -1,23 +1,20 @@
 {
   "name": "@zhengbangbo/pi",
   "version": "0.1.0",
-  "description": "Use the right python package manager",
   "packageManager": "pnpm@7.8.0",
+  "description": "Use the right python package manager",
   "author": "Bang-Bo Zheng <zhengbangbo@hotmail.com>",
+  "license": "MIT",
   "homepage": "https://github.com/zhengbangbo/pi",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "bin"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
-  },
   "bin": {
     "pi": "bin/pi.mjs",
     "psh": "bin/psh.mjs",
@@ -27,15 +24,21 @@
     "pru": "bin/pru.mjs",
     "pui": "bin/pui.mjs"
   },
+  "files": [
+    "dist",
+    "bin"
+  ],
   "scripts": {
     "build": "unbuild",
+    "lint": "eslint .",
     "test": "vitest",
     "release": "bumpp && npm publish"
   },
-  "license": "MIT",
   "devDependencies": {
     "@types/prompts": "^2.0.14",
+    "@zhengbangbo/eslint-config": "^0.0.5",
     "bumpp": "^8.2.1",
+    "eslint": "^8.21.0",
     "execa": "^6.1.0",
     "fast-glob": "^3.2.11",
     "find-up": "^6.3.0",
@@ -44,6 +47,9 @@
     "tsup": "^6.2.1",
     "typescript": "^4.7.4",
     "unbuild": "^0.7.6",
-    "vitest": "^0.20.2"
+    "vitest": "^0.20.3"
+  },
+  "eslintConfig": {
+    "extends": "@zhengbangbo"
   }
 }

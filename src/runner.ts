@@ -1,9 +1,9 @@
-import { Agent } from './agents'
 import { execaCommand } from 'execa'
+import prompts from 'prompts'
+import { agents } from './agents'
+import type { Agent } from './agents'
 import type { DetectOptions } from './detect'
 import { detect } from './detect'
-import { agents } from './agents'
-import prompts from 'prompts'
 
 export interface RunnerContext {
   hasLock?: boolean
@@ -23,10 +23,9 @@ export async function runCli(fn: Runner, options: DetectOptions = {}) {
 }
 
 export async function run(fn: Runner, args: string[], options: DetectOptions = {}) {
-  let cwd = process.cwd()
-  let command
+  const cwd = process.cwd()
 
-  let agent = await detect({ ...options, cwd })  || 'prompt'
+  let agent = await detect({ ...options, cwd }) || 'prompt'
   if (agent === 'prompt') {
     agent = (await prompts({
       name: 'agent',
@@ -37,7 +36,7 @@ export async function run(fn: Runner, args: string[], options: DetectOptions = {
     if (!agent)
       return
   }
-  command = await fn(agent as Agent, args, {
+  const command = await fn(agent as Agent, args, {
     hasLock: Boolean(agent),
     cwd,
   })
