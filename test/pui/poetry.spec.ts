@@ -10,4 +10,4 @@ const _ = (arg: string, expected: string) => () => {
   )
 }
 
-test('single', _('rich', 'poetry uninstall rich'))
+test('single', _('rich', 'poetry remove rich'))

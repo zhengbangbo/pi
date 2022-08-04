@@ -24,7 +24,7 @@ const poetry = {
   install: 'poetry install',
   add: 'poetry add {0}',
   upgrade: 'poetry update {0}',
-  uninstall: 'poetry uninstall {0}',
+  uninstall: 'poetry remove {0}',
   shell: 'poetry shell',
   clean: null,
 }
