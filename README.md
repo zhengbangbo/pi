@@ -69,6 +69,13 @@ pa
 
 Before it runs, it will detect your Pipfile.lock / poetry.lock to know current package manager and runs the corresponding commands.
 
+## Todo
+
+- [x] detect agent
+- [ ] cover main commands
+- [ ] install pipenv / poetry script
+- [ ] maybe add virtualenv / conda agent
+
 ## Thanks
 
 The idea of this project comes from [antfu/ni](https://github.com/antfu/ni).
