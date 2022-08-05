@@ -21,7 +21,7 @@ runCli(async (agent, args, ctx) => {
     let scripts = {}
 
     if (agent === 'poetry')
-      scripts = project_file['tool.poetry.scripts'] || {}
+      scripts = project_file.tool.poetry.srcipts || {}
     else if (agent === 'pipenv')
       scripts = project_file.scripts || {}
     else

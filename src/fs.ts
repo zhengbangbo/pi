@@ -10,7 +10,8 @@ export function getProjectToml(cwd = process.cwd()) {
   if (fs.existsSync(path)) {
     try {
       const raw = fs.readFileSync(path, 'utf-8')
-      const data = TOML.parse(raw)
+      // If not use JSON methods, build throw "Property 'poetry' does not exist on type 'AnyJson'"
+      const data = JSON.parse(JSON.stringify(TOML.parse(raw)))
       return data
     }
     catch (e) {

@@ -75,5 +75,10 @@ test('get project toml', () => {
       },
     }
   `)
+  expect(getProjectToml(cwd).tool.poetry.scripts).toMatchInlineSnapshot(`
+    {
+      "run": "src.main:main",
+    }
+  `)
 })
 
