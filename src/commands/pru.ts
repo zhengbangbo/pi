@@ -20,17 +20,19 @@ runCli(async (agent, args, ctx) => {
     const project_file = getProjectToml(ctx?.cwd) || {}
     let scripts = {}
 
-    if (agent === 'poetry')
-      scripts = project_file.tool.poetry.srcipts || {}
-    else if (agent === 'pipenv')
-      scripts = project_file.scripts || {}
-    else
+    if (agent === 'poetry') { scripts = project_file.tool.poetry.scripts || {} }
+    else if (agent === 'pipenv') { scripts = project_file.scripts || {} }
+    else {
+      console.warn(`${agent} is not supported.`)
       process.exit(1)
+    }
 
     const names = Object.entries(scripts) as [string, string][]
 
-    if (!names.length)
+    if (!names.length) {
+      console.warn('Don\'t have any script.')
       return
+    }
 
     const choices: Choice[] = names
       .filter(i => !i[0].startsWith('?'))
