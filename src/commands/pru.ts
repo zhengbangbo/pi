@@ -59,6 +59,7 @@ runCli(async (agent, args, ctx) => {
       args.push(selected)
     }
     catch (e) {
+      console.error(`[prompts] ${e}`)
       process.exit(1)
     }
   }
@@ -67,9 +68,6 @@ runCli(async (agent, args, ctx) => {
     storage.last_run_command = args[0]
     dump()
   }
-
-  // eslint-disable-next-line no-console
-  console.log(`${agent} start to run: ${args}`)
 
   return parsePru(agent, args)
 })
