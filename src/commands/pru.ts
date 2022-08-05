@@ -34,10 +34,10 @@ runCli(async (agent, args, ctx) => {
 
     const choices: Choice[] = names
       .filter(i => !i[0].startsWith('?'))
-      .map(([value, cmd]) => ({
-        title: value,
+      .map(([cmd, value]) => ({
+        title: cmd,
         value,
-        description: cmd,
+        description: value,
       }))
 
     if (storage.last_run_command) {
@@ -48,15 +48,15 @@ runCli(async (agent, args, ctx) => {
     }
 
     try {
-      const { fn } = await prompts({
-        name: 'fn',
+      const { selected } = await prompts({
+        name: 'selected',
         message: 'script to run',
         type: 'autocomplete',
         choices,
       })
-      if (!fn)
+      if (!selected)
         return
-      args.push(fn)
+      args.push(selected)
     }
     catch (e) {
       process.exit(1)
