@@ -34,6 +34,9 @@
     "test": "vitest",
     "release": "bumpp && npm publish"
   },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5"
+  },
   "devDependencies": {
     "@types/prompts": "^2.0.14",
     "@zhengbangbo/eslint-config": "^0.0.5",
