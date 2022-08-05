@@ -1,6 +1,5 @@
 import { expect, test } from 'vitest'
 import type { Choice } from 'prompts'
-import prompts from 'prompts'
 import { getProjectToml } from '../../src/fs'
 
 test('get scritpts', async () => {

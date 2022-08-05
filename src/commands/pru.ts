@@ -68,5 +68,8 @@ runCli(async (agent, args, ctx) => {
     dump()
   }
 
+  // eslint-disable-next-line no-console
+  console.log(`${agent} start to run: ${args}`)
+
   return parsePru(agent, args)
 })
