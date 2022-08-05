@@ -17,13 +17,11 @@ runCli(async (agent, args, ctx) => {
   }
 
   if (args.length === 0) {
-    // todo: select srcipt
-
     const project_file = getProjectToml(ctx?.cwd) || {}
     let scripts = {}
 
     if (agent === 'poetry')
-      scripts = project_file.scripts || {}
+      scripts = project_file['tool.poetry.scripts'] || {}
     else if (agent === 'pipenv')
       scripts = project_file.scripts || {}
     else
