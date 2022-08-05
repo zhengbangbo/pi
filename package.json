@@ -1,6 +1,6 @@
 {
   "name": "@zhengbangbo/pi",
-  "version": "0.1.1-beta.0",
+  "version": "0.1.1-beta.1",
   "packageManager": "pnpm@7.8.0",
   "description": "Use the right python package manager",
   "author": "Bang-Bo Zheng <zhengbangbo@hotmail.com>",
@@ -32,7 +32,7 @@
     "build": "unbuild",
     "lint": "eslint .",
     "test": "vitest",
-    "release": "bumpp && npm publish"
+    "release": "bumpp && unbuild && npm publish"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5"
