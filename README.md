@@ -2,26 +2,31 @@
 
 ```bash
 pnpm i -g @zhengbangbo/pi
-
-pi
 ```
 
 [pipenv](https://pipenv.pypa.io/en/latest/) · [poetry](https://python-poetry.org/)
 
+![tldr](img/tldr.png)
 ## pi - install
+
 ```bash
 pi
 
 # pipenv install
 # poetry install
+
+pi rich
+
+# pipenv install rich
+# poetry add rich
 ```
 
 ## pru - run
 ```bash
-pru
+pru dev
 
-# pipenv run
-# poetry run
+# pipenv run dev
+# poetry run dev
 ```
 
 ## psh - enter virtual environment
