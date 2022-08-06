@@ -1,15 +1,8 @@
 export const DEFAULT_AGENT: Agent = 'pipenv'
 
-const pipenvRun = (agent: string) => (args: string[]) => {
-  if (args.length > 1)
-    return `${agent} run ${args[0]} -- ${args.slice(1).join(' ')}`
-  else
-    return `${agent} run ${args[0]}`
-}
-
 const pipenv = {
   agent: 'pipenv {0}',
-  run: pipenvRun('pipenv'),
+  run: 'pipenv run {0}',
   install: 'pipenv install',
   add: 'pipenv install {0}',
   upgrade: 'pipenv update {0}',
