@@ -33,8 +33,8 @@ export const parsePi = <Runner>((agent, args) => {
 })
 
 export const parsePru = <Runner>((agent, args) => {
-  if (args.length === 0)
-    args.push('start')
+  // pipenv - https://pipenv.pypa.io/en/latest/advanced/#custom-script-shortcuts
+  // potery - https://python-poetry.org/docs/pyproject#scripts
 
   return getCommand(agent, 'run', args)
 })

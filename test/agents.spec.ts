@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { AGENTS, DEFAULT_AGENT, PROJECTS, agents } from '../src/agents'
+import { AGENTS, DEFAULT_AGENT, INSTALL_PAGE, LOCKS, PROJECTS, agents } from '../src/agents'
 
 test('Command must same for every agent', () => {
   expect(Object.keys(AGENTS.pipenv)).toEqual(Object.keys(AGENTS.poetry))
@@ -32,4 +32,22 @@ test('PROJECTS', () => {
     ]
   `)
   expect(Object.keys(PROJECTS).find(key => PROJECTS[key] === 'pipenv')).toMatchInlineSnapshot('"Pipfile"')
+})
+
+test('LOCKS', () => {
+  expect(LOCKS).toMatchInlineSnapshot(`
+    {
+      "Pipfile.lock": "pipenv",
+      "poetry.lock": "poetry",
+    }
+  `)
+})
+
+test('INSTALL_PAGE', () => {
+  expect(INSTALL_PAGE).toMatchInlineSnapshot(`
+    {
+      "pipenv": "https://pipenv.pypa.io/en/latest/",
+      "poetry": "https://python-poetry.org/docs/#installation",
+    }
+  `)
 })

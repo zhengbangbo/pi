@@ -3,7 +3,7 @@ import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 export interface Storage {
-  last_run_command?: string
+  last_run_script?: string
 }
 
 let storage: Storage | undefined
@@ -28,4 +28,21 @@ export async function load(fn?: (storage: Storage) => Promise<boolean> | boolean
   }
 
   return storage!
+}
+
+export async function read_last_run_script() {
+  const storage = await load()
+  if (!storage.last_run_script) {
+    console.error('No last script found')
+    process.exit(1)
+  }
+  return storage.last_run_script
+}
+
+export async function save_last_run_script(args: string[]) {
+  const storage = await load()
+  if (storage.last_run_script !== args[0]) {
+    storage.last_run_script = args[0]
+    dump()
+  }
 }

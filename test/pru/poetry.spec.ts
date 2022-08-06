@@ -11,4 +11,5 @@ const _ = (arg: string, expected: string) => () => {
 }
 
 test('single', _('test', 'poetry run test'))
+test('-', _('-', 'poetry run -'))
 

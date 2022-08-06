@@ -11,3 +11,4 @@ const _ = (arg: string, expected: string) => () => {
 }
 
 test('single', _('test', 'pipenv run test'))
+test('-', _('-', 'pipenv run -'))
