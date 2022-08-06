@@ -1,8 +1,7 @@
-import { findUp } from 'find-up'
 import terminalLink from 'terminal-link'
 import { describe, expect, test } from 'vitest'
 import { detect, getlockPath } from '../src'
-import { INSTALL_PAGE, LOCKS } from '../src/agents'
+import { INSTALL_PAGE } from '../src/agents'
 
 describe.skip('detect', () => {
   test('case-0-empty', async () => {
@@ -23,7 +22,7 @@ describe.skip('detect', () => {
   })
 })
 
-test('findup', async () => {
+test.skip('findup', async () => {
   const cwd = `${process.cwd()}/test/test-files/locks/case-1-only-pipenv`
   expect(await getlockPath(cwd)).toMatchInlineSnapshot('"/Users/zbb/i/pi/test/test-files/locks/case-1-only-pipenv/Pipfile.lock"')
 })
