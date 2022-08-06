@@ -14,7 +14,7 @@ export interface DetectOptions {
 export async function detect({ autoInstall, cwd }: DetectOptions) {
   let agent: Agent | null = null
 
-  const lockPath = await findUp(Object.keys(LOCKS), { cwd })
+  const lockPath = await getlockPath(cwd)
 
   // detect based on lock
   if (!agent && lockPath)
@@ -40,4 +40,7 @@ export async function detect({ autoInstall, cwd }: DetectOptions) {
   }
 
   return agent
+}
+export async function getlockPath(cwd: string | undefined) {
+  return await findUp(Object.keys(LOCKS), { cwd })
 }

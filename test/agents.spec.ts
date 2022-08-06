@@ -21,17 +21,17 @@ test('default agent', () => {
 test('PROJECTS', () => {
   expect(PROJECTS).toMatchInlineSnapshot(`
     {
-      "Pipfile": "pipenv",
-      "pyproject.toml": "poetry",
+      "pipenv": "Pipfile",
+      "poetry": "pyproject.toml",
     }
   `)
   expect(Object.values(PROJECTS)).toMatchInlineSnapshot(`
     [
-      "pipenv",
-      "poetry",
+      "Pipfile",
+      "pyproject.toml",
     ]
   `)
-  expect(Object.keys(PROJECTS).find(key => PROJECTS[key] === 'pipenv')).toMatchInlineSnapshot('"Pipfile"')
+  expect(Object.keys(PROJECTS).find(key => PROJECTS[key] === 'pipenv')).toMatchInlineSnapshot('undefined')
 })
 
 test('LOCKS', () => {

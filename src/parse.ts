@@ -10,9 +10,6 @@ export function getCommand(
 ) {
   const c = AGENTS[agent][command]
 
-  if (typeof c === 'function')
-    return c(args)
-
   if (c === null)
     return c
 
