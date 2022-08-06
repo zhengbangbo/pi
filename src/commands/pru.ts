@@ -4,6 +4,7 @@ import { dump, load } from '../storage'
 import { parsePru } from '../parse'
 import { runCli } from '../runner'
 import { getProjectToml } from '../fs'
+import { PROJECTS } from '../agents'
 
 runCli(async (agent, args, ctx) => {
   const storage = await load()
@@ -17,7 +18,8 @@ runCli(async (agent, args, ctx) => {
   }
 
   if (args.length === 0) {
-    const project_file = getProjectToml(ctx?.cwd) || {}
+    const project_file_name = Object.keys(PROJECTS).find(key => PROJECTS[key] === 'pipenv') || process.exit(1)
+    const project_file = getProjectToml(ctx?.cwd, project_file_name)
     let scripts = {}
 
     if (agent === 'poetry') { scripts = project_file.tool.poetry.scripts || {} }

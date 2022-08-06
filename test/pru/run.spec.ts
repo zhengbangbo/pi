@@ -4,7 +4,7 @@ import { getProjectToml } from '../../src/fs'
 
 test('get scritpts', async () => {
   const cwd = `${process.cwd()}/test/test-files`
-  const project_file = getProjectToml(cwd)
+  const project_file = getProjectToml(cwd, 'pyproject.toml')
   const scripts = project_file.tool.poetry.scripts
   expect(scripts).toMatchInlineSnapshot(`
     {

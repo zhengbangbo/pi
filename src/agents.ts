@@ -34,6 +34,11 @@ export const AGENTS = {
   poetry,
 }
 
+export const PROJECTS: Record<string, Agent> = {
+  'Pipfile': 'pipenv',
+  'pyproject.toml': 'poetry',
+}
+
 export const LOCKS: Record<string, Agent> = {
   'Pipfile.lock': 'pipenv',
   'poetry.lock': 'poetry',

@@ -2,10 +2,10 @@ import fs from 'fs'
 import { resolve } from 'path'
 import TOML from '@iarna/toml'
 
-export function getProjectToml(cwd = process.cwd()) {
+export function getProjectToml(cwd = process.cwd(), filename: string) {
   // pipenv - Pipfile
   // potery - pyproject.toml
-  const path = resolve(cwd, 'pyproject.toml')
+  const path = resolve(cwd, filename)
 
   if (fs.existsSync(path)) {
     try {

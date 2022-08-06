@@ -9,3 +9,6 @@ name = "pypi"
 
 [requires]
 python_version = "3.10"
+
+[scripts]
+printspam = "python -c \"print('I am a silly example, no one would need to do this')\""
