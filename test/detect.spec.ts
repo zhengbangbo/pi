@@ -4,7 +4,7 @@ import { describe, expect, test } from 'vitest'
 import { detect, getlockPath } from '../src'
 import { INSTALL_PAGE, LOCKS } from '../src/agents'
 
-describe('detect', () => {
+describe.skip('detect', () => {
   test('case-0-empty', async () => {
     const cwd = `${process.cwd()}/test/test-files/locks/case-0-empty`
     expect(await detect({ cwd })).toMatchInlineSnapshot('null')
